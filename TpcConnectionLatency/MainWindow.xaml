@@ -1,0 +1,74 @@
+﻿<Window x:Class="TpcConnectionLatency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TpcConnectionLatency"
+        mc:Ignorable="d"
+        Title="TCP Latency" Height="450" Width="800"
+        Background="#FF3F3F3F"
+        Foreground="#FFFCD2A0"
+        >
+    <Window.DataContext>
+        <local:MainWindowModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Filter: "/>
+            <TextBox Width="300" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True"/>
+        <StackPanel Grid.Row="2" VerticalAlignment="Center" Margin="10">
+            <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
+                <TextBlock Text="IP:  "/>
+                <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedConnection.RemoteIpv4Addr}"/>
+            </StackPanel>
+            <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
+                <TextBlock Text="Location:  "/>
+                <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedGeolocation}"/>
+            </StackPanel>
+            <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
+                <TextBlock Text="Ping:  "/>
+                <TextBlock Foreground="#00FF00" Text="{Binding HighlightedConnection.Current}"/>
+            </StackPanel>
+            <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
+                <TextBlock Text="Avg:  "/>
+                <TextBlock Text="{Binding HighlightedConnection.Avg}"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid TextBlock.FontSize="9" Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="12"/>
+                <RowDefinition/>
+                <RowDefinition Height="12"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock>Latency</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                <TextBlock Text="{Binding GraphHeight}"/>
+                <TextBlock Text=" ms"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <TextBlock>60 seconds</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right">
+                <TextBlock>0</TextBlock>
+            </StackPanel>
+            <WindowsFormsHost Grid.Row="1" Grid.ColumnSpan="2" Name="WFHost"/>
+        </Grid>
+    </Grid>
+</Window>

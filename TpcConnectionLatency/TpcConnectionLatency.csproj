@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Graphics\Shaders\basic_shader.frag" />
+    <None Remove="Graphics\Shaders\basic_shader.vert" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Shaders\basic_shader.frag" />
+    <EmbeddedResource Include="Graphics\Shaders\basic_shader.vert" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTK.GLControl" Version="3.1.0" />
+    <PackageReference Include="Vanara.PInvoke.IpHlpApi" Version="3.3.2" />
+  </ItemGroup>
+
+</Project>
