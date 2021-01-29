@@ -12,7 +12,7 @@
     <Window.DataContext>
         <local:MainWindowModel/>
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="5,0,5,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
@@ -22,17 +22,17 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="5" Orientation="Horizontal" VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="Filter: "/>
             <TextBox Width="300" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Margin="5" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True"/>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="60"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel VerticalAlignment="Center" Margin="10">
+            <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
                 <StackPanel HorizontalAlignment="Right" TextBlock.FontSize="12" Orientation="Horizontal">
                     <TextBlock Text="IP:"/>
                 </StackPanel>
@@ -46,7 +46,7 @@
                     <TextBlock Text="Avg:"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10">
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0,0,5,0">
                 <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
                     <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedConnection.RemoteIpv4Addr}"/>
                 </StackPanel>
