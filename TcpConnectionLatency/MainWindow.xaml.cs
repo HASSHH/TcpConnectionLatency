@@ -21,6 +21,7 @@ using TcpConnectionLatency.Graphics;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
+using System.ComponentModel;
 
 namespace TcpConnectionLatency
 {
@@ -96,7 +97,7 @@ namespace TcpConnectionLatency
                 else
                 {
                     model.HighlightedConnection = model.HighlightedConnection;//force bindings update
-                    scene.Values.Add(model.HighlightedConnection.Current);
+                    scene.Values.Add(model.HighlightedConnection.RTT);
                     if (scene.Values.Count > 60)
                         scene.Values.RemoveAt(0);
                     uint maxVal = scene.Values.Max();
@@ -110,7 +111,7 @@ namespace TcpConnectionLatency
         private async void SetGeolocation(TcpConnectionInfo connection)
         {
             MainWindowModel model = DataContext as MainWindowModel;
-            GeolocationResponse geolocation = await GetLocationFromIp(connection.RemoteIpv4Addr);
+            GeolocationResponse geolocation = await GetLocationFromIp(connection.RemoteIp);
             if(geolocation != null)
             {
                 if(model.HighlightedConnection == connection)//check if highlighted con. is still the same one
@@ -143,6 +144,14 @@ namespace TcpConnectionLatency
         private void GlControl_Paint(object sender, PaintEventArgs e)
         {
             scene?.Paint();
+        }
+
+        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyDescriptor is PropertyDescriptor descriptor)
+            {
+                e.Column.Header = descriptor.DisplayName ?? descriptor.Name;
+            }
         }
     }
 }

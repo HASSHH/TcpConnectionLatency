@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +24,13 @@ namespace TcpConnectionLatency
             this.ownerInfo = ownerInfo;
         }
 
-        public uint Current => stats.SampleRtt;
+        public uint RTT => stats.SampleRtt;
         public uint Smoothed => stats.SmoothedRtt;
         public float Avg => (float)stats.SumRtt / stats.CountRtt;
         public uint Min => stats.MinRtt;
         public uint Max => stats.MaxRtt;
-        public string RemoteIpv4Addr => ownerRow.dwRemoteAddr.ToString();
+        [DisplayName("Remote IP")]
+        public string RemoteIp => ownerRow.dwRemoteAddr.ToString();
         public string Name => ownerInfo.pModuleName;
         public string Path => ownerInfo.pModulePath;
 

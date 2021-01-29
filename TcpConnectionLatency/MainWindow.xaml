@@ -26,7 +26,7 @@
             <TextBlock Text="Filter: "/>
             <TextBox Width="300" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True"/>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60"/>
@@ -48,13 +48,13 @@
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0,0,5,0">
                 <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
-                    <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedConnection.RemoteIpv4Addr}"/>
+                    <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedConnection.RemoteIp}"/>
                 </StackPanel>
                 <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
                     <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedGeolocation}"/>
                 </StackPanel>
                 <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
-                    <TextBlock Foreground="#00FF00" Text="{Binding HighlightedConnection.Current}"/>
+                    <TextBlock Foreground="#00FF00" Text="{Binding HighlightedConnection.RTT}"/>
                 </StackPanel>
                 <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
                     <TextBlock Text="{Binding HighlightedConnection.Avg}"/>
