@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TpcConnectionLatency.Graphics
+namespace TcpConnectionLatency.Graphics
 {
     class Scene
     {
@@ -100,7 +100,7 @@ namespace TpcConnectionLatency.Graphics
 
         private string ReadShaderString(string fileName)
         {
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TpcConnectionLatency.Graphics.Shaders." + fileName))
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TcpConnectionLatency.Graphics.Shaders." + fileName))
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {

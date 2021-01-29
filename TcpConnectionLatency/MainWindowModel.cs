@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TpcConnectionLatency
+namespace TcpConnectionLatency
 {
     class MainWindowModel : INotifyPropertyChanged
     {

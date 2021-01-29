@@ -17,12 +17,12 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using Vanara.PInvoke;
 using OpenTK;
-using TpcConnectionLatency.Graphics;
+using TcpConnectionLatency.Graphics;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
 
-namespace TpcConnectionLatency
+namespace TcpConnectionLatency
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

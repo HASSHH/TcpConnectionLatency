@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Vanara.PInvoke;
 using static Vanara.PInvoke.IpHlpApi;
 
-namespace TpcConnectionLatency
+namespace TcpConnectionLatency
 {
     class TcpConnectionInfo
     {
