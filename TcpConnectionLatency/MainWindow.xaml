@@ -22,29 +22,45 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="5" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="Filter: "/>
             <TextBox Width="300" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True"/>
-        <StackPanel Grid.Row="2" VerticalAlignment="Center" Margin="10">
-            <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
-                <TextBlock Text="IP:  "/>
-                <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedConnection.RemoteIpv4Addr}"/>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Margin="5" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <StackPanel HorizontalAlignment="Right" TextBlock.FontSize="12" Orientation="Horizontal">
+                    <TextBlock Text="IP:"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" TextBlock.FontSize="12" Orientation="Horizontal">
+                    <TextBlock Text="Location:"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" TextBlock.FontSize="20" Orientation="Horizontal">
+                    <TextBlock Text="Ping:"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" TextBlock.FontSize="20" Orientation="Horizontal">
+                    <TextBlock Text="Avg:"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
-                <TextBlock Text="Location:  "/>
-                <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedGeolocation}"/>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10">
+                <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
+                    <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedConnection.RemoteIpv4Addr}"/>
+                </StackPanel>
+                <StackPanel TextBlock.FontSize="12" Orientation="Horizontal">
+                    <TextBlock Foreground="#FF90DDFF" Text="{Binding HighlightedGeolocation}"/>
+                </StackPanel>
+                <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
+                    <TextBlock Foreground="#00FF00" Text="{Binding HighlightedConnection.Current}"/>
+                </StackPanel>
+                <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
+                    <TextBlock Text="{Binding HighlightedConnection.Avg}"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
-                <TextBlock Text="Ping:  "/>
-                <TextBlock Foreground="#00FF00" Text="{Binding HighlightedConnection.Current}"/>
-            </StackPanel>
-            <StackPanel TextBlock.FontSize="20" Orientation="Horizontal">
-                <TextBlock Text="Avg:  "/>
-                <TextBlock Text="{Binding HighlightedConnection.Avg}"/>
-            </StackPanel>
-        </StackPanel>
+        </Grid>
         <Grid TextBlock.FontSize="9" Grid.Row="2" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="12"/>
