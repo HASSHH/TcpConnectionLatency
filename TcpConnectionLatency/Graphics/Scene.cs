@@ -66,7 +66,7 @@ namespace TcpConnectionLatency.Graphics
 
         private void Init()
         {
-            GL.ClearColor(0.3f, 0.3f, 0.3f, 1f);
+            GL.ClearColor(0.15f, 0.15f, 0.15f, 1f);
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
             GL.LineWidth(3);
