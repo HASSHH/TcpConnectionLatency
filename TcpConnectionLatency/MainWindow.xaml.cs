@@ -91,6 +91,7 @@ namespace TcpConnectionLatency
                 {
                     model.HighlightedConnection = null;
                     scene.Values.Clear();
+                    model.HighlightedGeolocation = string.Empty;
                 }
                 else
                 {
