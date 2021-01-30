@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Graphics\Shaders\basic_shader.frag" />
     <None Remove="Graphics\Shaders\basic_shader.vert" />
+    <None Remove="resmon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,10 @@
   <ItemGroup>
     <PackageReference Include="OpenTK.GLControl" Version="3.1.0" />
     <PackageReference Include="Vanara.PInvoke.IpHlpApi" Version="3.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resmon.ico" />
   </ItemGroup>
 
 </Project>

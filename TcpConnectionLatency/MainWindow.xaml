@@ -22,10 +22,21 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center">
-            <TextBlock Text="Filter: "/>
-            <TextBox Width="300" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
-        </StackPanel>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Filter: "/>
+                <TextBox Width="300" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Click="ResMonButton_Click" Background="#FF3F3F3F" BorderBrush="#00707070">
+                    <Image Source="resmon.ico" Height="30"/>
+                </Button>
+            </StackPanel>
+        </Grid>
         <DataGrid Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Connections}" SelectedItem="{Binding SelectedConnection}" AutoGenerateColumns="True" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

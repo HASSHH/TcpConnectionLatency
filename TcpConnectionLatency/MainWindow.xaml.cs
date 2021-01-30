@@ -22,6 +22,7 @@ using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace TcpConnectionLatency
 {
@@ -152,6 +153,14 @@ namespace TcpConnectionLatency
             {
                 e.Column.Header = descriptor.DisplayName ?? descriptor.Name;
             }
+        }
+
+        private void ResMonButton_Click(object sender, RoutedEventArgs e)
+        {
+            using Process proc = new();
+            string windir = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
+            proc.StartInfo.FileName = windir+@"\system32\resmon.exe";
+            proc.Start();
         }
     }
 }
